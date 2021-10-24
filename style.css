@@ -1,0 +1,77 @@
+ /* Cascating Stylesheet - o último elemento tem mais força*/
+
+* {
+    margin: 0;
+}
+
+ html, body {
+    height: 100%;
+}
+body {
+    --black: hsl(240, 6%, 13%);
+    ---grey: hsl(240, 9%, 89%);
+    display: grid;
+    place-items: center; /* o place itens center funciona por conta do display grid*/
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+main {
+    background: url(images/imagemfundo.svg);
+    width: 375px;
+    height: 812px;
+}
+.container {
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: var(---grey);
+}
+
+.avatar {
+    width: 10rem;
+    margin: 11.5rem auto 0;
+    position: relative;
+}
+/* Com o clip-path ele perdeu seu nível, é preciso arrumar com o z-index*/
+.avatar span {
+    position: absolute;
+    top: -15px;
+    z-index: 1; /* posição no eixo z */
+}
+ /* Imagem que está no primeiro nível*/
+.avatar > img {
+    width: 10rem;
+    height: 11.5rem;
+    object-fit: cover;
+     /* object-fit -> para a imagem se adaptar*/
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+a {
+    color: var(---grey);
+    text-decoration: none;
+    margin-top: 0.25rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    margin-top: 2rem;
+}
+
+ul {
+    margin-top: 4rem;
+    list-style: none;
+    padding: 0;
+    display: flex; /* eixo principal - automatico na horizontal*/
+    gap: 0.5rem; /*espaço entre os itens da lista*/
+    justify-content: center;
+    /*dá pra usar o gap e o justify-content por causa do display flex*/
+}
